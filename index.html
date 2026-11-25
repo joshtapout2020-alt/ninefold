@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Ninefold Exam Prep</title>
+<meta name="description" content="Study site for the Virginia VDACS pesticide applicator exams, built for Ninefold Pest technicians.">
+<script>
+/* Apply a saved theme before first paint. Storage can fail, the site must not. */
+try { var t = localStorage.getItem('nf.theme'); if (t === '"light"' || t === '"dark"') document.documentElement.setAttribute('data-theme', JSON.parse(t)); } catch (e) {}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<a class="skip" href="#view">Skip to content</a>
+<!-- Icon sprite. All icons are drawn here, no icon font and no emoji. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M6 10v10h12V10" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM9 3v18M12 8h4M12 12h4" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="13.5" r="7.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 9v5l3 2M9.5 2.5h5M12 2.5V6" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+    <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4.5 18.5a9.5 9.5 0 1 1 15 0" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="m12 14 4.5-6" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="14" r="2" fill="currentColor"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M9 5 3.5 10.5 9 16M4 10.5h10a6 6 0 0 1 0 11h-3" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+    <symbol id="i-theme" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12.5 5.5 5.5L20 6.5" fill="none" stroke="currentColor" stroke-width="3.2"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5" fill="none" stroke="currentColor" stroke-width="3.2"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.6"/></symbol>
+    <symbol id="i-exam" viewBox="0 0 24 24"><path d="M5 3h14v18H5z" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="m8 8 1.5 1.5L12 7M8 15l1.5 1.5L12 14M14 8.5h2M14 15.5h2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-cards" viewBox="0 0 24 24"><path d="M8 7h13v13H8z" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M4 16V4h12" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v11H2zM14 10h4l4 4v3h-8z" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="7" cy="18.5" r="2" fill="currentColor"/><circle cx="17.5" cy="18.5" r="2" fill="currentColor"/></symbol>
+    <symbol id="i-tank" viewBox="0 0 24 24"><path d="M7 7h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2zM10 7V4h4v3M5 14h14" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+    <symbol id="i-bug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2"><ellipse cx="12" cy="9" rx="3" ry="3"/><ellipse cx="12" cy="16" rx="4" ry="5.5"/><path d="M8 13 3 10M8 16H3M8.5 19l-4 3M16 13l5-3M16 16h5M15.5 19l4 3"/></g></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 6h16v15H4zM4 11h16M8 3v5M16 3v5"/></g></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></g></symbol>
+  </defs>
+</svg>
+
+<div class="shell">
+  <header class="topbar gutter">
+    <!-- LOGO SLOT: swap the two spans for approved artwork, keep the link. -->
+    <a class="brand" href="#home" aria-label="Ninefold Exam Prep, home">
+      <span class="brand__name">Ninefold Pest</span>
+      <span class="brand__sub">Exam Prep</span>
+    </a>
+    <button class="iconbtn" id="themeBtn" type="button" aria-label="Switch light or dark mode"><svg aria-hidden="true"><use href="#i-theme"/></svg></button>
+  </header>
+
+  <nav class="nav" aria-label="Main">
+    <a href="#home"><svg aria-hidden="true"><use href="#i-home"/></svg>Home</a>
+    <a href="#study"><svg aria-hidden="true"><use href="#i-book"/></svg>Study</a>
+    <a href="#drill"><svg aria-hidden="true"><use href="#i-clock"/></svg>Drill</a>
+    <a href="#games"><svg aria-hidden="true"><use href="#i-gauge"/></svg>Games</a>
+    <a href="#callbacks"><svg aria-hidden="true"><use href="#i-back"/></svg>Callbacks<span class="badge" id="cbBadge" hidden></span></a>
+  </nav>
+
+  <main class="main gutter" id="view" tabindex="-1"></main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="data/modules.js"></script>
+<script src="data/cardquiz.js"></script>
+<script src="data/lawn.js"></script>
+<script src="data/conditions.js"></script>
+<script src="data/condition-topics.js"></script>
+<script src="data/questions-core.js"></script>
+<script src="data/questions-wdo.js"></script>
+<script src="data/bugs.js"></script>
+<script src="data/seasons.js"></script>
+<script src="data/cards.js"></script>
+<script src="data/calls.js"></script>
+<script src="data/states.js"></script>
+<script src="js/core.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/field.js"></script>
+<script src="js/sops.js"></script>
+<script src="js/conditions.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/games/shell.js"></script>
+<script src="js/games/suspended.js"></script>
+<script src="js/games/bugid.js"></script>
+<script src="js/games/label.js"></script>
+<script src="js/games/spill.js"></script>
+<script src="js/games/math.js"></script>
+<script src="js/games/walk.js"></script>
+<script src="js/games/foundation.js"></script>
+<script src="js/games/ppe.js"></script>
+<script src="js/games/ticket.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

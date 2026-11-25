@@ -1,0 +1,84 @@
+/* ==========================================================================
+   1. TOKENS. Rebrand here and nowhere else. In the build this block becomes
+   tokens.css. Brand values marked [brand] were read from ninefoldpest.com.
+   ========================================================================== */
+:root {
+  /* Surfaces */
+  --paper:      #F7F0E3;  /* [brand] site background */
+  --ticket:     #FFFDF7;  /* ticket stock, brightest surface for glare */
+  --ticket-2:   #EFE6D3;  /* form cell, pressed state */
+  --carbon:     #D9CCB2;  /* the carbon sheet under a ticket, our elevation */
+  /* Text and rules */
+  --ink:        #111111;  /* [brand] */
+  --ink-2:      #453D33;  /* secondary text, 9:1 on paper */
+  --rule:       #111111;  /* printed form rule */
+  --rule-soft:  #BFB196;  /* perforation, inner rules */
+  /* Action */
+  --red:        #B22223;  /* [brand] actions and marks only, never "wrong" */
+  --red-press:  #8E1516;
+  --on-red:     #FFFFFF;
+  --ink-block:  #111111;  /* dark panels */
+  --on-ink:     #F7F0E3;
+  /* Meaning */
+  --pass:       #1B6A3B;  /* correct, on rate */
+  --pass-tint:  #DCEBDC;
+  --call:       #7F5200;  /* callback: a miss. Ochre, so a miss is not an alarm */
+  --call-tint:  #F8E5B7;
+  --hot:        #A01030;  /* over rate, in games only */
+  --hot-tint:   #F4D3D6;
+  --weak:       #4C6472;  /* under rate, in games only */
+  --weak-tint:  #DCE5E8;
+  /* Tank */
+  --tank-wall:  #111111;
+  --tank-fill:  #FFFDF7;
+  --liquid:     #8DBBD0;
+  --liquid-dose:#3C7F9E;  /* tint at full dissolved strength */
+  --particle:   #5A3B14;
+  /* Type */
+  --font-head: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-data: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --stretch-head: 75%;
+  --t-micro: .75rem;    /* 12: field labels, the floor */
+  --t-small: .875rem;   /* 14 */
+  --t-body:  1.0625rem; /* 17: body, larger than usual for truck reading */
+  --t-lead:  1.25rem;   /* 20 */
+  --t-h3:    1.5rem;    /* 24 */
+  --t-h2:    1.875rem;  /* 30 */
+  --t-h1:    2.5rem;    /* 40 */
+  --t-mega:  clamp(3rem, 16vw, 4.5rem);
+  /* Space, 4px base */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px;
+  /* Shape */
+  --r: 8px;
+  --bw: 2px;
+  --tap: 48px;
+  /* Flat surfaces. Set these to add elevation later. */
+  --e1: none;
+  --e2: none;
+  --focus: 3px solid var(--red);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1B1613; --ticket:#28211C; --ticket-2:#352C25; --carbon:#0E0B09;
+    --ink:#F7F0E3; --ink-2:#CFC3AF; --rule:#D8CCB6; --rule-soft:#6A5C4E;
+    --red:#E8605A; --red-press:#F07F79; --on-red:#1B0B0A;
+    --ink-block:#F7F0E3; --on-ink:#1B1613;
+    --pass:#74D096; --pass-tint:#1F3A2A; --call:#ECBA57; --call-tint:#40310F;
+    --hot:#F58A9B; --hot-tint:#4A1C26; --weak:#9FBCCB; --weak-tint:#25343C;
+    --tank-wall:#D8CCB6; --tank-fill:#28211C; --liquid:#2F5F75; --liquid-dose:#5FA9CB;
+    --particle:#E0B063; --focus:3px solid var(--ink);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1B1613; --ticket:#28211C; --ticket-2:#352C25; --carbon:#0E0B09;
+  --ink:#F7F0E3; --ink-2:#CFC3AF; --rule:#D8CCB6; --rule-soft:#6A5C4E;
+  --red:#E8605A; --red-press:#F07F79; --on-red:#1B0B0A;
+  --ink-block:#F7F0E3; --on-ink:#1B1613;
+  --pass:#74D096; --pass-tint:#1F3A2A; --call:#ECBA57; --call-tint:#40310F;
+  --hot:#F58A9B; --hot-tint:#4A1C26; --weak:#9FBCCB; --weak-tint:#25343C;
+  --tank-wall:#D8CCB6; --tank-fill:#28211C; --liquid:#2F5F75; --liquid-dose:#5FA9CB;
+  --particle:#E0B063; --focus:3px solid var(--ink);
+  color-scheme: dark;
+}
